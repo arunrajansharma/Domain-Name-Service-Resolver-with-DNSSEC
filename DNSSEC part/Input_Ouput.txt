@@ -1,0 +1,59 @@
+Your program should take a domain name as input and output according to three cases:
+1- DNSSEC is configured and everything is verified (output the verified IP Address)
+2- DNSSEC is not enabled (output “DNSSEC not supported”)
+3- DNSSEC is configured but the digital signature could NOT be verified. An example is http://www.dnssec-failed.org/, a site run by Comcast to specifically test whether or not your resolver has implemented DNSSEC correctly. They have a DNSKEY registered with .org that cannot resolve the digital signature at the www.dnssec-failed.org nameserver. In this case, output “DNSSec verification failed”.
+
+
+**************************************************
+1. DNSSEC enabled - "www.verisign.com"
+Output :
+Loading necessary Files....
+Root List Loaded
+Enter the domain Name
+www.verisign.com
+www
+verisign
+com
+DS for com. Verified
+DNSKEY for "com." Verified
+DS for verisign.com. Verified
+DNSKEY for "verisign.com." Verified
+2
+www.verisign.com
+www.verisign.com.	30	IN	A	72.13.63.55
+*****************************************************
+
+2. DNSSEC not enabled - "www.cs.stonybrook.edu"
+
+Note : please note that TLD have deployed DNSSEC, evident from ".com" or ".edu" getting verified. But, out university has not.
+
+
+Loading necessary Files....
+Root List Loaded
+Enter the domain Name
+www.cs.stonybrook.edu
+www
+cs
+stonybrook
+edu
+DS for edu. Verified
+DNSKEY for "edu." Verified
+1
+www.cs.stonybrook.edu
+www.cs.stonybrook.edu.	900	IN	A	130.245.27.2
+
+*****************************************************
+
+2. DNSSEC is configured but digital signature fails.
+i/p : "www.dnssec-failed.org"
+o/p :
+Loading necessary Files....
+Root List Loaded
+Enter the domain Name
+www.dnssec-failed.org
+www
+dnssec-failed
+org
+DS matching failed,org. returning
+0
+DNSSEC failed, not proceeding

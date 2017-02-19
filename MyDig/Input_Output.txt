@@ -1,0 +1,33 @@
+1. Type : A
+MacBook-Pro:MyDig arunrajan$ javac -cp dnsjava-2.1.8.jar MyDig.java 
+MacBook-Pro:MyDig arunrajan$ java -cp .:dnsjava-2.1.8.jar MyDig
+Loading necessary Files....
+Root List Loaded
+Enter the Name and type<separated by a space, type should be in capital letters>
+www.cs.stonybrook.edu A
+www.cs.stonybrook.edu.	900	IN	A	130.245.27.2
+Query Time3491ms
+
+**********************************
+
+2. Type : NS
+
+MacBook-Pro:MyDig arunrajan$ java -cp .:dnsjava-2.1.8.jar MyDig
+Loading necessary Files....
+Root List Loaded
+Enter the Name and type<separated by a space, type should be in capital letters>
+www.cs.stonybrook.edu NS
+cs.stonybrook.edu.	900	IN	SOA	nocnoc.stonybrook.edu. root.dns01.cs.stonybrook.edu. 2015020736 3600 600 43200 3600
+Query Time5283ms
+
+
+***********************************
+3. Type : MX
+
+MacBook-Pro:MyDig arunrajan$ java -cp .:dnsjava-2.1.8.jar MyDig
+Loading necessary Files....
+Root List Loaded
+Enter the Name and type<separated by a space, type should be in capital letters>
+www.cs.stonybrook.edu MX
+www.cs.stonybrook.edu.	900	IN	MX	10 www.cs.sunysb.edu.
+Query Time3864ms
